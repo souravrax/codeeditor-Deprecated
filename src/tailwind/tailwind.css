@@ -1,5 +1,13 @@
 @tailwind base;
 
+label {
+    @apply text-white
+}
+
+/* button {
+    @apply shadow rounded
+} */
+
 @tailwind components;
 
 @tailwind utilities;
