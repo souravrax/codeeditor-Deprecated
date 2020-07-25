@@ -1,13 +1,13 @@
 @tailwind base;
 
-label {
-    @apply text-white
+input {
+    @apply py-1 px-3 rounded shadow mx-1 outline-none
 }
 
-/* button {
-    @apply shadow rounded
-} */
-
 @tailwind components;
+
+.option {
+    @apply px-3 py-1 mx-1 rounded shadow
+}
 
 @tailwind utilities;
