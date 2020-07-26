@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import SplitPane from 'react-split-pane'
 import EditorTab from '../EditorTab/EditorTab'
 
-const MainSection = () => {
+const MainPage = () => {
 
     const [theme, setTheme] = useState("light");
 
@@ -65,4 +65,4 @@ const MainSection = () => {
     )
 }
 
-export default MainSection;
+export default MainPage;
