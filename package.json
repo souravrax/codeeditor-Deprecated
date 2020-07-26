@@ -6,25 +6,22 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "monaco-editor-webpack-plugin": "^1.9.0",
-    "node-sass": "^4.14.1",
     "react": "^16.13.1",
-    "react-app-rewired": "^2.1.6",
     "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1",
+    "react-app-rewired": "^2.1.6",
+    "node-sass": "^4.14.1",
+    "monaco-editor": "^0.20.0",
     "react-monaco-editor": "^0.39.1",
     "react-resize-detector": "^5.0.6",
-    "react-scripts": "3.4.1",
     "react-spinners-kit": "^1.9.1",
-    "react-split-pane": "^0.1.91",
-    "tailwindcss": "^1.5.2"
+    "react-split-pane": "^0.1.91"
   },
   "scripts": {
     "start": "react-app-rewired start",
-    "build": "npm run build:css && react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "build:css": "postcss ./src/tailwind/tailwind.css -o ./src/tailwind/util.css",
-    "watch:css": "postcss --watch ./src/tailwind/tailwind.css -o ./src/tailwind/util.css"
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-app-rewired eject"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -42,7 +39,6 @@
     ]
   },
   "devDependencies": {
-    "autoprefixer": "^9.8.5",
-    "postcss-cli": "^7.1.1"
+    "monaco-editor-webpack-plugin": "^1.9.0"
   }
 }

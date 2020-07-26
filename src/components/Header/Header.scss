@@ -1,0 +1,35 @@
+h1 {
+  font-size: 1.2rem;
+  font-family: "Open Sans";
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .part-2 {
+    color: var(--blue);
+  }
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 9px 30px;
+  max-width: 100%;
+}
+
+.run {
+  background-color: var(--blue);
+  color: white;
+  padding: 5px 20px;
+  border: 1px solid var(--blue);
+  box-shadow: 1px 1px 4px 1px #248ccc86;
+  transition: all 200ms ease-in-out;
+  &:hover {
+    background-color: white;
+    color: var(--blue);
+  }
+}

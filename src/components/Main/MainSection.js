@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import SplitPane from 'react-split-pane'
-import EditorTab from './EditorTab'
+import EditorTab from '../EditorTab/EditorTab'
 
 const MainSection = () => {
 

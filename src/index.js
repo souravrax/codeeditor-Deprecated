@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import './tailwind/util.css'
-import './index.scss';
+import './main.scss';
+import './assets/SplitPane.scss'
 
 ReactDOM.render(
   <App />,
