@@ -1,0 +1,13 @@
+.model {
+  position: absolute;
+  height: 300px;
+  width: 600px;
+  background-color: #0f0f0f;
+  transition: all 500ms cubic-bezier(1, 0, 0, 1);
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  border: 1px solid black;
+  z-index: 4;
+  border-radius: 10px;
+}

@@ -1,7 +1,7 @@
 import React from 'react'
 import Editor from '../Editor/Editor'
 
-export default function EditorTab({ value, theme, name, option, language }) {
+export default function EditorTab({ value, theme, name, option, language, focus }) {
     return (
         <div style={{
             width: "100%",
@@ -13,6 +13,7 @@ export default function EditorTab({ value, theme, name, option, language }) {
                 fontSize: "10px",
                 color: "#fff",
                 backgroundColor: "#000",
+                width: "100%",
                 fontFamily: "var(--font)",
             }}>
                 {name.toString().toUpperCase()}
@@ -23,6 +24,8 @@ export default function EditorTab({ value, theme, name, option, language }) {
                 <Editor
                     theme={theme}
                     language={language}
+                    editorOptions={option}
+                    focus={focus}
                 />
             </div>
         </div>

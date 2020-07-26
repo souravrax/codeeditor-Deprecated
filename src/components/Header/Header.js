@@ -1,14 +1,21 @@
 import React, { useState } from 'react';
 import './Header.scss'
 
-const Model = () => {
-    return (
-        <div className="model">
-        </div>
-    )
-}
+// const Model = ({ show, change }) => {
+//     return (
+//         <div className="model" style={{
+//             transform: `scale(${show ? 1 : 0})`
+//         }}
+//             onClick={() => change(!show)}
+//         >
+//             Model
+//         </div>
+//     )
+// }
 
 function Header() {
+
+    const [showModel, setShowModel] = useState(false);
 
     const [mode, setMode] = useState("Light");
 
@@ -18,10 +25,11 @@ function Header() {
 
     return (
         <header className="header">
-            <div className="logo">
-                <h1 className="">Code</h1>
+            <a href="http://localhost:3000" className="logo">
+                <i className="fa fa-terminal"></i>
+                <h1 className="part-1">Code</h1>
                 <h1 className="part-2">Editor</h1>
-            </div>
+            </a>
 
             <div className="controls">
                 <select name="language" className="">
@@ -35,7 +43,7 @@ function Header() {
                     <option value="brainf*ck">Brainf*ck</option>
                 </select>
 
-                <button className="">
+                <button className="" onClick={() => setShowModel(!showModel)}>
                     <i className="fa fa-cog"></i>
                     <span>Editor Settings</span>
                 </button>
@@ -45,16 +53,13 @@ function Header() {
                 </button>
                 <input type="text" className="" placeholder="Compiler Options" />
                 <input type="text" className="" placeholder="Command Line Arguments" />
-                <button className="">
-                    <i className="fa fa-share"></i>
-                    <span>Share</span>
-                </button>
                 <button className="" onClick={toggleMode}>
                     <i className="fa fa-adjust"></i>
                     <span>{mode} Mode</span>
                 </button>
                 <button className="">
-                    <i className="fa fa-user-circle-o" aria-hidden="true"></i>
+                    <i className="fa fa-share"></i>
+                    <span>Share</span>
                 </button>
             </div>
         </header>

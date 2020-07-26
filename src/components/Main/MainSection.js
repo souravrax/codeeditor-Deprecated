@@ -4,11 +4,12 @@ import EditorTab from '../EditorTab/EditorTab'
 
 const MainSection = () => {
 
-    const [theme, setTheme] = useState("dark");
+    const [theme, setTheme] = useState("light");
 
-    const toggleTheme = () => {
-        setTheme(theme === "light" ? "dark" : "light");
-    }
+
+    // const toggleTheme = () => {
+    //     setTheme(theme === "light" ? "dark" : "light");
+    // }
 
     const min = window.innerWidth * 30 / 100;
     const max = window.innerWidth - min;
@@ -25,7 +26,9 @@ const MainSection = () => {
                 value={"// Start by typing here"}
                 language={"javascript"}
                 name={"editor"}
+                focus={true}
                 option={{
+                    selectOnLineNumber: true,
                     minimap: {
                         enabled: false
                     }

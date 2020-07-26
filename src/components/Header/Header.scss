@@ -1,14 +1,27 @@
+@import "../../assets/sass/mixins";
+@import "./model";
+
 h1 {
   font-size: 1.2rem;
-  font-family: "Open Sans";
+  font-family: var(--font);
 }
 
 .logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flex;
+  align-items: flex-end;
+  user-select: none;
+  .part-1 {
+    font-size: 1.2em;
+  }
   .part-2 {
     color: var(--blue);
+    font-size: 1.4em;
+    font-family: "Rowdies";
+    margin-right: 8px;
+  }
+  i {
+    font-weight: 900;
+    font-size: larger;
   }
 }
 
@@ -17,19 +30,23 @@ h1 {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 9px 30px;
+  background-color: #fafafa;
+  padding: 7px 30px;
   max-width: 100%;
 }
 
 .run {
   background-color: var(--blue);
   color: white;
-  padding: 5px 20px;
+  padding: 8px 22px;
   border: 1px solid var(--blue);
   box-shadow: 1px 1px 4px 1px #248ccc86;
-  transition: all 200ms ease-in-out;
+  transition: all 150ms ease-in-out;
   &:hover {
     background-color: white;
     color: var(--blue);
+  }
+  &:active {
+    transform: scale(0.9);
   }
 }

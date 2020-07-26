@@ -1,0 +1,22 @@
+@mixin grid($cols, $rows) {
+  display: grid;
+  grid-template-columns: repeat($col, 1fr);
+  grid-template-rows: repeat($row, 1fr);
+}
+
+@mixin grid($cols, $rows, $row_gap, $col_gap) {
+  @include grid(col, rows);
+  column-gap: $col_gap;
+  row-gap: $row_gap;
+}
+
+@mixin grid($col, $rows, $gap) {
+  @include grid(col, rows);
+  gap: $gap;
+}
+
+@mixin flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

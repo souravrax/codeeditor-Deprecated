@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import MonacoEditor from "react-monaco-editor";
 import ReactResizeDetector from 'react-resize-detector'
-import Starter from '../../skeletons/BoilerPlate'
+import Starter from '../../lang/LanguageSkeletons'
+import { MetroSpinner as Loader } from 'react-spinners-kit'
 
 class Editor extends Component {
     constructor(props) {
@@ -9,25 +10,46 @@ class Editor extends Component {
         this.state = {
             code: "",
             height: 0,
-            width: 0
+            width: 0,
+            isReady: false
         };
+        this.editorRef = React.createRef();
     }
     editorDidMount = (editor, monaco) => {
         // console.log("editorDidMount", editor);
         this.setState({
-            code: Starter[this.props.language]
+            code: Starter[this.props.language],
         })
-        editor.focus();
-        document.addEventListener('keydown', (e) => {
-            if (e.ctrlKey && e.key === 's') {
-                this.setState({
-                    code: this.state.code + "ctrl + s pressed, Saving...\n"
-                })
-                this.saveCode();
-                e.preventDefault();
+        if (this.props.focus) editor.focus();
+        console.log(editor.onKeyDown(event => {
+
+            const { browserEvent, ctrlKey } = event;
+            if (browserEvent.key === 's' && ctrlKey) {
+                event.preventDefault();
+                if (this.props.editorOptions.readOnly) {
+                    alert("ReadOnly area, cannot simulate ctrl+s")
+                } else {
+                    // console.log("Saving", this.state.code);
+                }
             }
-        })
+
+        }));
     };
+
+    componentDidMount() {
+        window.setTimeout(() => {
+            this.setState({
+                isReady: true
+            })
+            // console.log("Timeout ended");
+        }, 2500)
+    }
+
+
+    editorWillMount = (monaco) => {
+        // console.log("Editor will mount");
+    }
+
     onChange = (newValue, e) => {
         this.setState({
             code: newValue
@@ -35,7 +57,7 @@ class Editor extends Component {
     };
 
     saveCode = () => {
-        console.log(this.state.code);
+        // console.log(this.state.code);
     }
 
     handleResize = (width, height) => {
@@ -46,13 +68,8 @@ class Editor extends Component {
     }
 
     render() {
-        const { code, width, height } = this.state;
-        const options = {
-            selectOnLineNumbers: true,
-            minimap: {
-                enabled: false
-            }
-        };
+        const { code, width, height, isReady } = this.state;
+        const { editorOptions, language, theme } = this.props;
 
         return (
             <div style={{
@@ -64,17 +81,31 @@ class Editor extends Component {
                     handleHeight
                     onResize={this.handleResize}
                     refreshMode="debounce"
-                    refreshRate={100} />
-                <MonacoEditor
-                    height={height}
-                    width={width}
-                    language={this.props.language}
-                    theme={this.props.theme}
-                    value={code}
-                    options={options}
-                    onChange={this.onChange}
-                    editorDidMount={this.editorDidMount}
-                />
+                    refreshRate={50} />
+                {
+                    isReady ? <MonacoEditor
+                        ref={this.editorRef}
+                        height={height}
+                        width={width}
+                        language={language}
+                        theme={theme}
+                        value={code}
+                        options={editorOptions}
+                        onChange={this.onChange}
+                        editorDidMount={this.editorDidMount}
+                        editorWillMount={this.editorWillMount}
+                    /> :
+                        <div style={{
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            width: "100%",
+                            height: "100%",
+                            backgroundColor: "black"
+                        }}>
+                            <Loader loading={!isReady} />
+                        </div>
+                }
             </div>
         );
     }
