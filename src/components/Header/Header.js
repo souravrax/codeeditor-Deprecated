@@ -1,19 +1,18 @@
-import React, { useState } from 'react';
-import './Header.scss'
+import React, { useState } from "react";
+import "./Header.scss";
 
 function Header() {
-
     const [showModel, setShowModel] = useState(false);
 
     const [mode, setMode] = useState("Light");
 
     const toggleMode = () => {
         setMode(mode === "Light" ? "Dark" : "Light");
-    }
+    };
 
     return (
         <header className="header">
-            <a href="http://localhost:3000" className="logo">
+            <a href="./" className="logo">
                 <i className="fa fa-terminal"></i>
                 <h1 className="part-1">Code</h1>
                 <h1 className="part-2">Editor</h1>
@@ -36,8 +35,16 @@ function Header() {
                     <i className="fa fa-play"></i>
                     <span>Run</span>
                 </button>
-                <input type="text" className="" placeholder="Compiler Options" />
-                <input type="text" className="" placeholder="Command Line Arguments" />
+                <input
+                    type="text"
+                    className=""
+                    placeholder="Compiler Options"
+                />
+                <input
+                    type="text"
+                    className=""
+                    placeholder="Command Line Arguments"
+                />
                 <button className="" onClick={toggleMode}>
                     <i className="fa fa-adjust"></i>
                     <span>{mode} Mode</span>
@@ -48,20 +55,8 @@ function Header() {
                 </button>
             </div>
         </header>
-    )
+    );
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 // const Header = () => (
 //     <header className="" }}>
