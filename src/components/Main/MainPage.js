@@ -1,17 +1,15 @@
-import React, { useState } from 'react'
-import SplitPane from 'react-split-pane'
-import EditorTab from '../EditorTab/EditorTab'
+import React from "react";
+import SplitPane from "react-split-pane";
+import EditorTab from "../EditorTab/EditorTab";
 
 const MainPage = () => {
-
-    const [theme, setTheme] = useState("light");
-
-
+    // const [theme, setTheme] = useState("light");
+    const theme = "light";
     // const toggleTheme = () => {
     //     setTheme(theme === "light" ? "dark" : "light");
     // }
 
-    const min = window.innerWidth * 30 / 100;
+    const min = (window.innerWidth * 30) / 100;
     const max = window.innerWidth - min;
 
     return (
@@ -20,7 +18,8 @@ const MainPage = () => {
             split="vertical"
             defaultSize={"50%"}
             minSize={min}
-            maxSize={max}>
+            maxSize={max}
+        >
             <EditorTab
                 theme={`vs-${theme}`}
                 value={"// Start by typing here"}
@@ -30,13 +29,14 @@ const MainPage = () => {
                 option={{
                     selectOnLineNumber: true,
                     minimap: {
-                        enabled: false
-                    }
-                }} />
+                        enabled: false,
+                    },
+                }}
+            />
             <SplitPane
                 split="horizontal"
-                minSize={(window.innerHeight - 60) * 30 / 100}
-                maxSize={(window.innerHeight - 60) * 70 / 100}
+                minSize={((window.innerHeight - 60) * 30) / 100}
+                maxSize={((window.innerHeight - 60) * 70) / 100}
                 defaultSize={"50%"}
             >
                 <EditorTab
@@ -46,9 +46,10 @@ const MainPage = () => {
                     name={"input"}
                     option={{
                         minimap: {
-                            enabled: false
-                        }
-                    }} />
+                            enabled: false,
+                        },
+                    }}
+                />
                 <EditorTab
                     theme={`vs-${theme}`}
                     value={""}
@@ -57,12 +58,13 @@ const MainPage = () => {
                     option={{
                         readOnly: true,
                         minimap: {
-                            enabled: false
-                        }
-                    }} />
+                            enabled: false,
+                        },
+                    }}
+                />
             </SplitPane>
         </SplitPane>
-    )
-}
+    );
+};
 
 export default MainPage;
