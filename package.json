@@ -3,6 +3,8 @@
     "version": "0.1.1",
     "private": true,
     "dependencies": {
+        "invariant": "^2.2.4",
+        "levenary": "^1.1.1",
         "monaco-editor": "^0.21.2",
         "node-sass": "^4.14.1",
         "prop-types": "^15.7.2",
@@ -41,6 +43,6 @@
         ]
     },
     "devDependencies": {
-        "monaco-editor-webpack-plugin": "^1.9.0"
+        "monaco-editor-webpack-plugin": "^2.0.0"
     }
 }
