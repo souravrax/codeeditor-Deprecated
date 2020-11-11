@@ -4,6 +4,11 @@ import ReactResizeDetector from 'react-resize-detector'
 import Starter from '../../lang/LanguageSkeletons'
 import { MetroSpinner as Loader } from 'react-spinners-kit'
 
+import PropTypes from 'prop-types'
+
+
+const LOADING_TIME = 2000;
+
 class Editor extends Component {
     constructor(props) {
         super(props);
@@ -15,6 +20,8 @@ class Editor extends Component {
         };
         this.editorRef = React.createRef();
     }
+
+
     editorDidMount = (editor, monaco) => {
         // console.log("editorDidMount", editor);
         this.setState({
@@ -41,13 +48,7 @@ class Editor extends Component {
             this.setState({
                 isReady: true
             })
-            // console.log("Timeout ended");
-        }, 2500)
-    }
-
-
-    editorWillMount = (monaco) => {
-        // console.log("Editor will mount");
+        }, LOADING_TIME)
     }
 
     onChange = (newValue, e) => {
@@ -55,10 +56,6 @@ class Editor extends Component {
             code: newValue
         })
     };
-
-    saveCode = () => {
-        // console.log(this.state.code);
-    }
 
     handleResize = (width, height) => {
         this.setState({
@@ -109,6 +106,14 @@ class Editor extends Component {
             </div>
         );
     }
+}
+
+
+Editor.propTypes = {
+    editorOptions: PropTypes.object,
+    language: PropTypes.string,
+    theme: PropTypes.oneOf(["vs-dark", "vs-light"]),
+    focus: PropTypes.bool
 }
 
 export default Editor;

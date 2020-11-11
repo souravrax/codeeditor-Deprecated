@@ -1,7 +1,8 @@
 import React from 'react'
 import Editor from '../Editor/Editor'
+import PropTypes from 'prop-types'
 
-export default function EditorTab({ value, theme, name, option, language, focus }) {
+export default function EditorTab({ theme, name, option, language, focus }) {
     return (
         <div style={{
             width: "100%",
@@ -22,7 +23,7 @@ export default function EditorTab({ value, theme, name, option, language, focus 
                 height: "calc(100% - 20px)"
             }}>
                 <Editor
-                    theme={theme}
+                    theme={"vs-dark"}
                     language={language}
                     editorOptions={option}
                     focus={focus}
@@ -30,4 +31,12 @@ export default function EditorTab({ value, theme, name, option, language, focus 
             </div>
         </div>
     )
+}
+
+EditorTab.propTypes = {
+    theme: PropTypes.string,
+    name: PropTypes.oneOf(["vs-dark", "vs-light"]),
+    option: PropTypes.object,
+    language: PropTypes.string,
+    focus: PropTypes.bool
 }

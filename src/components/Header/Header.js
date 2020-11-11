@@ -1,18 +1,6 @@
 import React, { useState } from 'react';
 import './Header.scss'
 
-// const Model = ({ show, change }) => {
-//     return (
-//         <div className="model" style={{
-//             transform: `scale(${show ? 1 : 0})`
-//         }}
-//             onClick={() => change(!show)}
-//         >
-//             Model
-//         </div>
-//     )
-// }
-
 function Header() {
 
     const [showModel, setShowModel] = useState(false);
@@ -38,9 +26,6 @@ function Header() {
                     <option value="cpp">C++</option>
                     <option value="java">Java</option>
                     <option value="python">Python</option>
-                    <option value="cobol">COBOL</option>
-                    <option value="d">D</option>
-                    <option value="brainf*ck">Brainf*ck</option>
                 </select>
 
                 <button className="" onClick={() => setShowModel(!showModel)}>
